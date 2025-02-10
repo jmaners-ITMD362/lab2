@@ -8,18 +8,32 @@
   <link rel="stylesheet" media="screen" href="css/screen.css" />
 </head>
 <body>
-  <h1>Information Form</h1>
+  <h1>User Information Form</h1>
+
   <form action="/submit" method="POST" autocomplete="on">
     <label for="email">Email Address:</label>
     <input type="email" id="email" name="email" required placeholder="example@example.com" autocomplete="email">
     <br><br>
     <label for="phone">Phone Number:</label>
-    <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555" pattern="[\(\d{3}\)\s\d{3}-\d{4}]" autocomplete="tel">
+    <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555" autocomplete="tel" oninput="formatPhoneNumber(event)">
     <br><br>
     <label for="dob">Date of Birth:</label>
     <input type="date" id="dob" name="dob" required autocomplete="bday">
     <br><br>
+    <div id="additional-info" style="display:none;">
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" placeholder="123 Main St">
+      <br><br>
+      <label for="occupation">Occupation:</label>
+      <input type="text" id="occupation" name="occupation" placeholder="Software Engineer">
+      <br><br>
+    </div>
+    <button type="button" id="toggle-info" class="toggle-button" onclick="toggleAdditionalInfo()">+ Add Additional Information</button>
+    <br><br>
+
     <button type="submit">Submit</button>
   </form>
+
+  
 </body>
 </html>
